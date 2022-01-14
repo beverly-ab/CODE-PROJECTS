@@ -10,7 +10,7 @@ body {
   width: 10%;
   position: absolute;
   top: 100%;
-  background-image: url('/images/mole.png');
+  background-image: url('images/mole.png');
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: 0% 5%;
