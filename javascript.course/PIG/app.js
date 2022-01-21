@@ -26,7 +26,10 @@ score0El.textContent = 0
 score1El.textContent = 0
 diceEl.classList.add('hidden')
 
+const score = [0, 0]
 let currentScore = 0
+let activePlayer = 0
+
 //Rolling dice function
 
 btnRoll.addEventListener('click', function () {
@@ -35,6 +38,8 @@ btnRoll.addEventListener('click', function () {
   diceEl.src = `dice-${dice}.png`
   if (dice !== 1) {
     currentScore += dice
+    document.textContent.getElementById(`current-${activePlayer}`).textContent =
+      currentScore
   } else {
   }
 })
