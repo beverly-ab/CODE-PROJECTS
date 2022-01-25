@@ -38,8 +38,9 @@ btnRoll.addEventListener('click', function () {
   diceEl.src = `dice-${dice}.png`
   if (dice !== 1) {
     currentScore += dice
-    document.textContent.getElementById(`current-${activePlayer}`).textContent =
+    document.getElementById(`current-${activePlayer}`).textContent =
       currentScore
   } else {
+    activePlayer = activePlayer === 0 ? 1 : 0
   }
 })
