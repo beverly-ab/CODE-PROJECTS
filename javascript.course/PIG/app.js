@@ -30,6 +30,13 @@ diceEl.classList.add('hidden')
 const score = [0, 0]
 let currentScore = 0
 let activePlayer = 0
+const switchPlayer = function () {
+  document.getElementById(`current-${activePlayer}`).textContent = 0
+  activePlayer = activePlayer === 0 ? 1 : 0
+  currentScore = 0
+  player0El.classList.toggle('active')
+  player1El.classList.toggle('active')
+}
 
 //Rolling dice function
 
@@ -43,11 +50,7 @@ btnRoll.addEventListener('click', function () {
     document.getElementById(`current-${activePlayer}`).textContent =
       currentScore
   } else {
-    document.getElementById(`current-${activePlayer}`).textContent = 0
-    activePlayer = activePlayer === 0 ? 1 : 0
-    currentScore = 0
-    player0El.classList.toggle('active')
-    player1El.classList.toggle('active')
+    switchPlayer()
   }
 })
 
@@ -55,4 +58,5 @@ btnHold.addEventListener('click', function () {
   scores[activePlayer] += currentScore
   document.getElementById(`current-${activePlayer}`).textContent =
     scores[activePlayer]
+  switchPlayer()
 })
