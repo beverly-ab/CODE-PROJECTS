@@ -59,14 +59,13 @@ btnHold.addEventListener('click', function () {
   console.log(scores[activePlayer])
   document.getElementById(`score-${activePlayer}`).textContent =
     scores[activePlayer]
- if(scores[activePlayer] >=){
-  //Finish game
-document.querySelector(`playrt-${activePlayer}`).classList.add('winner')
-document.querySelector(`playrt-${activePlayer}`).classList.remove('winner')
- }
- 
- 
- 
- 
+  if (scores[activePlayer] >= 100) {
+    //Finish game
+    document.querySelector(`.player-${activePlayer}`).classList.add('winner')
+    document.querySelector(`.player-${activePlayer}`).classList.remove('active')
+  } else {
     switchPlayer()
+  }
+
+  switchPlayer()
 })
