@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wk13</title>
+    <script >
+        var yourAvg = 0
+        var yourGrade = 0
+        function calcAverage() {
+            yourAvg = 0
+            if (questions.ans1[0].checked == true) {
+                yourAvg = yourAvg + 20
+            }
+            if (questions.ans3[0].checked == true) {
+                yourAvg = yourAvg + 20
+            }
+            if (questions.A2.checked && questions.B2.checked && questions.C2.checked && questions.D2.checked == true) {
+                yourAvg = yourAvg + 20
+            }
+            if (questions.B.checked && questions.D.checked== true) {
+                yourAvg = yourAvg + 20
+            }
+            if (questions.D3[3].checked == true) {
+                yourAvg = yourAvg + 20
+            }
+            document.answers.yourAvg.value = yourAvg
+         //  window.document.write("YAY " + yourAvg)
+        }
+
+        function calcGrade(){
+            if (yourAvg >= 90) {
+                    yourGrade = "A"
+                // questions.letterGrade.value = yourGrade
+                    }
+            else if (yourAvg >= 80){
+                yourGrade = "B"
+                // questions.letterGrade.value = yourGrade
+                    }
+                    else if (yourAvg >= 70) {
+                            yourGrade = "C"
+                            // questions.letterGrade.value = yourGrade
+                        }
+                    else if (yourAvg >= 60) {
+                            yourGrade = "D"
+                            // questions.letterGrade.value = yourGrade
+                        }
+                    else  {
+                            yourGrade = "F"
+                            // questions.letterGrade.value = yourGrade
+                        }
+                       document.answers.yourGrade.value = yourGrade
+                       // alert("HI");
+        }
+            </script>
+</head>
+<body>
+    
+<h1>Week 13 - Quiz</h1>
+<form name="questions" action=" ">
+    <p>
+        Question #1: A house cat is genetically 95.6% tiger.
+    </p>
+    <input type="radio" name="ans1">True<br />
+    <input type="radio" name="ans1">False<br />
+    <p>
+        Question #2: Cat whiskers are the same width as their body.
+    </p>
+    <input type="radio" name="ans3">True<br />
+    <input type="radio" name="ans3">False<br />
+
+<p>
+    Question #3: The following are breeds of cats:
+</p>
+<input type="checkbox" name="A2">A.) Persian<br />
+<input type="checkbox" name="B2">B.) Sphynx<br />
+<input type="checkbox" name="C2">C.) Ragdoll<br />
+<input type="checkbox" name="D2">D.) Maine Coon <br />
+<p>
+    Question #4: What does it mean for a cat to show their belly?
+    </p>
+<input type="checkbox" name="A">A.) Time to rub it!<br />
+<input type="checkbox" name="B">B.) They're relaxed<br />
+<input type="checkbox" name="C">C.) Time to assert my dominance<br />
+<input type="checkbox" name="D">D.) They're happy<br />
+<p>
+    Question #5: How much sleep do cats need a day?
+</p>
+<input type="radio" name="D3">A.) 23 hours<br />
+<input type="radio" name="D3">B.) about 2 hours<br />
+<input type="radio" name="D3">C.) 10 min<br />
+<input type="radio" name="D3">D.) 12 - 16 hrs<br />
+</form>
+<form name = "answers">
+<input type="button" value="Calc Your Grade" onclick="calcAverage(questions)">
+<b><i>Your numerical grade on the quiz is:</i></b> <input type="text" name="yourAvg" id="yourAvg"> <br>
+
+<input type="button" value="Show Letter Grade" onclick="calcGrade(yourAvg)">
+<b><i>Your letter grade on the quiz is:</i></b> <input type="text" name="yourGrade" />
+
+</form>
+</body>
+</html>

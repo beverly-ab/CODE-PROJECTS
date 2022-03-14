@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>wk11 Pets</title>
+    <script>
+      var perDay = '';
+      var numDays = document.getElementById('numDays');
+      var board = '';
+
+      function costDay() {
+        perDay = 0;
+        if (petInfo.petTypeC.checked == true) {
+          perDay = perDay + 50;
+
+          if (petInfo.cageType[0].checked == true) {
+            perDay = perDay + 100;
+            // perDay = document.petInfo.perDay.value
+          } else {
+            perDay = perDay + 50;
+            // perDay = document.petInfo.perDay.value
+          }
+        } else if (petInfo.petTypeD.checked == true) {
+          perDay = perDay + 100;
+
+          if (petInfo.cageType[0].checked == true) {
+            perDay = perDay + 100;
+          } else {
+            perDay = perDay + 50;
+          }
+        } else {
+          perDay = perDay + 25;
+          if (petInfo.cageType[0].checked == true) {
+            perDay = perDay + 100;
+            // perDay = document.petInfo.perDay.value
+          } else {
+            perDay = perDay + 50;
+            // perDay = document.petInfo.perDay.value
+          }
+        }
+        document.petInfo.perDay.value = perDay;
+      }
+
+      function calcBoard(perDay) {
+        board = 0;
+        if (petInfo.food[0].checked == true) {
+          board = (perDay.value % numDays) + 100;
+        } else if (petInfo.food[1].checked == true) {
+          board = (perDay.value % numDays) + 75;
+        } else {
+          board = (perDay.value % numDays.value) + 15;
+        }
+        document.petInfo.board.value = board;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Pet Boarding</h1>
+    <form action="">
+      <input type="file" id="myFile" name="filename" />
+      <input type="submit" />
+    </form>
+    <form name="petInfo" id="petInfo">
+      <p>
+        Enter their name:
+        <input type="text" name="petName" />
+      </p>
+      <p>
+        Enter type:<br />
+
+        <input type="radio" name="petType" id="petTypeC" value="Cat" />Cat<br />
+        <input type="radio" name="petType" id="petTypeD" value="Dog" />Dog<br />
+        <input
+          type="radio"
+          name="petType"
+          id="petTypeH"
+          value="Hamster"
+        />Hamster
+      </p>
+      <p>
+        Enter cage:<br />
+        <input type="radio" name="cageType" />Cage A: a palace<br />
+        <input type="radio" name="cageType" />Cage B: a room<br />
+      </p>
+      <p>
+        <input type="button" value="Per Day" onclick="costDay()" />
+        <input type="text" name="perDay" id="perDay" />
+      </p>
+      <p>
+        The food:<br />
+        <input type="radio" name="food" id="freshFood" />Best fresh food<br />
+        <input type="radio" name="food" id="purina" />Purina<br />
+        <input type="radio" name="food" id="tableScraps" />Table Scraps
+      </p>
+      <p># Days <input type="text" name="numDays" id="numDays" /><br /></p>
+      <input type="button" value="Board!" onclick="calcBoard(perDay)" />
+      <b><i>Boarding is approx:</i></b>
+      <input type="text" name="board" id="board" size="10" /><br />
+      <p>Notes: <input type="text" size="100" /></p>
+    </form>
+  </body>
+</html>
